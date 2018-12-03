@@ -1,0 +1,31 @@
+{
+    "rules": [
+        {
+            "rulePriority": 10,
+            "description": "No expire tag prefixes",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ${tags},
+                "countType": "imageCountMoreThan",
+                "countNumber": 9999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 20,
+            "description": "Expire images older than ${period} days",
+            "selection": {
+                "tagStatus": "any",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": ${period}
+            },
+            "action": {
+                "type": "expire"
+            }
+        }
+
+    ]
+}
