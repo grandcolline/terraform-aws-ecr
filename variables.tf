@@ -3,7 +3,6 @@
 # ----------------------------
 variable "repository_name" {
   type        = "string"
-  default     = "sample"
   description = "ECR repository name"
 }
 
