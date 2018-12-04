@@ -5,9 +5,9 @@
             "description": "No expire tag prefixes",
             "selection": {
                 "tagStatus": "tagged",
-                "tagPrefixList": ${tags},
+                "tagPrefixList": ${tag_prefixes},
                 "countType": "imageCountMoreThan",
-                "countNumber": 9999
+                "countNumber": 99999
             },
             "action": {
                 "type": "expire"

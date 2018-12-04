@@ -17,7 +17,7 @@ data "template_file" "lifecycle_policy" {
   template = "${file("${path.module}/lifecycle-policy.tpl.json")}"
 
   vars {
-    tags   = "${jsonencode(var.tags)}"
-    period = "${var.period}"
+    tag_prefixes = "${jsonencode(var.tag_prefixes)}"
+    period       = "${var.period}"
   }
 }

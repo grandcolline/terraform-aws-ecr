@@ -16,8 +16,8 @@ module "ecr" {
 |Name|Type|Description|Default|
 |:-:|:-:|:-:|:-:|
 |repository_name|string|ECR repository name.||
-|tag_prefixes|list|Not expire tag prifixes.|`["latest", "v"]`|
-|period|string|period of the pushed images. (days)|14|
+|tag_prefixes|list|Not expire image this tagged.|`["latest", "v"]`|
+|period|string|Expire period of the pushed images. (days)|14|
 
 ## Outputs
 
@@ -28,3 +28,9 @@ module "ecr" {
 |registry_id|ECR repository ID|
 |repository_url|ECR repository URL|
 
+## Description
+
+ECRのRepositoryを作成します。Lifecycleのルールは以下の通りです。
+
+1. tag_prefixesで指定されたtagのprifixは削除しない（最大99999個保存される）
+2. それ以外のtagについては、periodで指定された期間保存される。

@@ -7,14 +7,14 @@ variable "repository_name" {
   description = "ECR repository name"
 }
 
-variable "tagprefixes" {
+variable "tag_prefixes" {
   type        = "list"
   default     = ["latest", "v"]
-  description = "Not expire tag prifixes."
+  description = "Not expire image this tagged."
 }
 
 variable "period" {
   type        = "string"
   default     = "14"
-  description = "period of the pushed images. (days)"
+  description = "Expire period of the pushed images. (days)"
 }
