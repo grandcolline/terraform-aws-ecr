@@ -1,5 +1,7 @@
 # Simple ECR Repository with Lifecycle
 
+[![CircleCI](https://circleci.com/gh/grandcolline/terraform-aws-ecr.svg?style=svg)](https://circleci.com/gh/grandcolline/terraform-aws-ecr)
+
 This module creates an ECR Repository
 
 ## Usage
