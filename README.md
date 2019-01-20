@@ -34,3 +34,4 @@ ECRのRepositoryを作成します。Lifecycleのルールは以下の通りで�
 
 1. tag_prefixesで指定されたtagのprifixは削除しない（最大99999個保存される）
 2. それ以外のtagについては、periodで指定された期間保存される。
+
