@@ -3,6 +3,6 @@ provider "aws" {
 }
 
 module "ecr" {
-  source = "../../"
+  source          = "../../"
   repository_name = "sample-repository"
 }
