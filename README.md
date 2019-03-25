@@ -19,8 +19,7 @@ This module creates an ECR Repository & Lifecycle.
 ```hcl
 module "ecr" {
   source          = "grandcolline/ecr/aws"
-  version         = "0.1.0"
-
+  version         = "v0.1.1"
   repository_name = "sample-repository"
 }
 ```
