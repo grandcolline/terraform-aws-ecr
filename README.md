@@ -2,38 +2,42 @@
 
 [![CircleCI](https://circleci.com/gh/grandcolline/terraform-aws-ecr.svg?style=svg)](https://circleci.com/gh/grandcolline/terraform-aws-ecr)
 
-This module creates an ECR Repository
+## Description
+
+This module creates an ECR Repository & Lifecycle.
+
+### Lifecycle Rule
+
+1. This tag prefix is not expire.
+* latest
+* v[0-9]
+
+2. Expire at specified time. (Default: 14days)
 
 ## Usage
 
 ```hcl
 module "ecr" {
   source          = "grandcolline/ecr/aws"
+  version         = "0.1.0"
+
   repository_name = "sample-repository"
 }
 ```
 
-## Variables
+## Inputs
 
-|Name|Type|Description|Default|
-|:-:|:-:|:-:|:-:|
-|repository_name|string|ECR repository name.||
-|tag_prefixes|list|Not expire image this tagged.|`["latest", "v"]`|
-|period|string|Expire period of the pushed images. (days)|14|
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| repository\_name | ECR repository name | string | n/a | yes |
+| period | Expire period of the pushed images. (days) | string | `"14"` | no |
 
 ## Outputs
 
-|Name|Description|
-|:-:|:-:|
-|registry_name|ECR repository name|
-|registry_arn|ECR repository arn|
-|registry_id|ECR repository ID|
-|repository_url|ECR repository URL|
-
-## Description
-
-ECRのRepositoryを作成します。Lifecycleのルールは以下の通りです。
-
-1. tag_prefixesで指定されたtagのprifixは削除しない（最大99999個保存される）
-2. それ以外のtagについては、periodで指定された期間保存される。
+| Name | Description |
+|------|-------------|
+| repository\_id | ECR repository ID |
+| repository\_name | ECR repository name |
+| repository\_arn | ECR repository arn |
+| repository\_url | ECR repository URL |
 

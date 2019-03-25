@@ -1,12 +1,12 @@
 # ---------------------------------
-#  ECRレポジトリ
+#  ECR Repository
 # ---------------------------------
 resource "aws_ecr_repository" "main" {
   name = "${var.repository_name}"
 }
 
 # ---------------------------------
-#  ライフサイクルポリシー
+#  Lifecycle Policy
 # ---------------------------------
 resource "aws_ecr_lifecycle_policy" "main" {
   policy     = "${data.template_file.lifecycle_policy.rendered}"
@@ -17,7 +17,6 @@ data "template_file" "lifecycle_policy" {
   template = "${file("${path.module}/lifecycle-policy.tpl.json")}"
 
   vars {
-    tag_prefixes = "${jsonencode(var.tag_prefixes)}"
-    period       = "${var.period}"
+    period = "${var.period}"
   }
 }

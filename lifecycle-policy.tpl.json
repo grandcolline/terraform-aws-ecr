@@ -2,10 +2,10 @@
     "rules": [
         {
             "rulePriority": 10,
-            "description": "No expire tag prefixes",
+            "description": "No expire latest tag ",
             "selection": {
                 "tagStatus": "tagged",
-                "tagPrefixList": ${tag_prefixes},
+                "tagPrefixList": ["latest"],
                 "countType": "imageCountMoreThan",
                 "countNumber": 99999
             },
@@ -15,6 +15,136 @@
         },
         {
             "rulePriority": 20,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v0"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 21,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v1"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 22,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v2"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 23,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v3"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 24,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v4"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 25,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v5"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 26,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v6"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 27,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v7"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 28,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v8"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 29,
+            "description": "No expire version tag",
+            "selection": {
+                "tagStatus": "tagged",
+                "tagPrefixList": ["v9"],
+                "countType": "imageCountMoreThan",
+                "countNumber": 99999
+            },
+            "action": {
+                "type": "expire"
+            }
+        },
+        {
+            "rulePriority": 30,
             "description": "Expire images older than ${period} days",
             "selection": {
                 "tagStatus": "any",
