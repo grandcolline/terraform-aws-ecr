@@ -9,6 +9,7 @@ This module creates an ECR Repository & Lifecycle.
 ### Lifecycle Rule
 
 1. This tag prefix is not expire.
+
 * latest
 * v[0-9]
 
@@ -19,7 +20,7 @@ This module creates an ECR Repository & Lifecycle.
 ```hcl
 module "ecr" {
   source          = "grandcolline/ecr/aws"
-  version         = "v0.1.1"
+  version         = "0.2.0"
   repository_name = "sample-repository"
 }
 ```
@@ -28,6 +29,7 @@ module "ecr" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| region | AWS Region | string | `"ap-northeast-1"` | no |
 | repository\_name | ECR repository name | string | n/a | yes |
 | period | Expire period of the pushed images. (days) | string | `"14"` | no |
 

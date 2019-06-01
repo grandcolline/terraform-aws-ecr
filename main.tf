@@ -1,22 +1,34 @@
+# -------------------------------
+#  Setting
+# -------------------------------
+terraform {
+  required_version = ">= 0.12"
+}
+
+provider "aws" {
+  region = var.region
+}
+
 # ---------------------------------
 #  ECR Repository
 # ---------------------------------
 resource "aws_ecr_repository" "main" {
-  name = "${var.repository_name}"
+  name = var.repository_name
 }
 
 # ---------------------------------
 #  Lifecycle Policy
 # ---------------------------------
 resource "aws_ecr_lifecycle_policy" "main" {
-  policy     = "${data.template_file.lifecycle_policy.rendered}"
-  repository = "${aws_ecr_repository.main.name}"
+  policy     = data.template_file.lifecycle_policy.rendered
+  repository = aws_ecr_repository.main.name
 }
 
 data "template_file" "lifecycle_policy" {
-  template = "${file("${path.module}/lifecycle-policy.tpl.json")}"
+  template = file("${path.module}/lifecycle-policy.tpl.json")
 
-  vars {
-    period = "${var.period}"
+  vars = {
+    period = var.period
   }
 }
+
